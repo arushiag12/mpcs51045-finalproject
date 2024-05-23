@@ -1,8 +1,0 @@
-[
-{
-  "directory": "C:/Users/91967/Documents/GitHub/mpcs51045-finalproject/build",
-  "command": "C:/msys64/ucrt64/bin/c++.exe  @CMakeFiles/trades.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles/trades.dir/driver.cpp.obj -c C:/Users/91967/Documents/GitHub/mpcs51045-finalproject/driver.cpp",
-  "file": "C:/Users/91967/Documents/GitHub/mpcs51045-finalproject/driver.cpp",
-  "output": "CMakeFiles/trades.dir/driver.cpp.obj"
-}
-]

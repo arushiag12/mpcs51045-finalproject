@@ -6,6 +6,7 @@
 #include "orderbook.h"
 namespace output_orderbook {
 
+// Output the orderbook
 std::ostream& operator<<(std::ostream& os, const Orderbook& orderbook) {
 
     os << "Orderbook\n";

@@ -23,18 +23,23 @@ using my_list::addItem;
 using my_list::deleteItem;
 namespace orderbook {
 
+// Orderbook class
 struct Orderbook {
 
+    Orderbook() = default;
     std::list<std::unique_ptr<Order>> bids;
     std::list<std::unique_ptr<Order>> asks;
     std::vector<std::tuple<OrderId, OrderId>> transactions;
 
+    // Cancel an order from the orderbook
     void cancel(Side side, OrderId id);
 
+    // Add an order to the orderbook
     template <typename OrderType> 
     requires CheckValidOrderType_v<OrderType, OrderTypes>
     void add(Side side, Price p, Quantity q);
 
+    // Match an order before adding it to the orderbook
     bool matchMarket(auto it_begin, auto it_end, std::unique_ptr<Order>& order, Side side);
     bool matchLimit(auto it_begin, auto it_end, std::unique_ptr<Order>& order, Side side);
 };

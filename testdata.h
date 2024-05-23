@@ -12,6 +12,7 @@ using requests::CancelRequest;
 
 namespace testdata {
 
+// Generate sample requests
 void generate_requests(auto& trades) {
     trades.push_back(std::make_unique<AddRequest<MarketOrder>>(Side::BUY, 100, 10));
     trades.push_back(std::make_unique<AddRequest<LimitOrder>>(Side::BUY, 200, 20));

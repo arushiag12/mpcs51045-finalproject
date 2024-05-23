@@ -8,6 +8,7 @@
 using orders::Order;
 namespace my_list{
 
+// Add an item to the list in sorted order
 void addItem(std::unique_ptr<Order>& order, std::list<std::unique_ptr<Order>>& l) {
     auto it = l.begin();
     if (it == l.end()) {
@@ -20,6 +21,7 @@ void addItem(std::unique_ptr<Order>& order, std::list<std::unique_ptr<Order>>& l
     }
 }
 
+// Delete an item from the list
 void deleteItem(OrderId id, std::list<std::unique_ptr<Order>>& l) {
     auto it = l.begin();
     while (it != l.end()) {

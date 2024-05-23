@@ -13,7 +13,7 @@ using orderbook::Orderbook;
 namespace requests {
 
 
-
+// Base class for all requests
 struct Request 
 {
     virtual void process(Orderbook& orderbook) = 0;
@@ -21,6 +21,7 @@ struct Request
 };
 
 
+// Derived classes for different OrderTypes
 template <typename OrderType>
 requires CheckValidOrderType_v<OrderType, OrderTypes>
 struct ValidRequest : public Request 
@@ -30,6 +31,7 @@ struct ValidRequest : public Request
 };
 
 
+// Add request
 template <typename OrderType>
 struct AddRequest : public ValidRequest<OrderType>
 {
@@ -48,6 +50,7 @@ template <typename OrderType>
 using AddRequest_t = AddRequest<OrderType>::type;
 
 
+// Cancel request
 template <typename OrderType>
 struct CancelRequest : public ValidRequest<OrderType>
 {
@@ -65,11 +68,10 @@ template <typename OrderType>
 using CancelRequest_t = CancelRequest<OrderType>::type;
 
 
+// Process a request
 void processRequest(std::unique_ptr<Request> request, Orderbook& orderbook) {
     request->process(orderbook);
 }
-
-
 
 }
 #endif
